@@ -3,7 +3,7 @@ Enhanced Paypal Java SDK
 
 #### Create Paypal Developer Account & REST API App
 
-Go to: https://developer.paypal.com/developer/accounts/\
+Go to: https://developer.paypal.com/developer/accounts/ \
 Then navigate: My Apps & Credentials -> REST API apps -> Create App\
 Select the one that you've just created to get CLIENT_ID and CLIENT_SECRET\
 Change it to LIVE when your app in production mode\
