@@ -1,6 +1,13 @@
 # Paypal-Service
 Enhanced Paypal Java SDK
 
+#### Create Paypal Developer Account & REST API App
+
+Go to: https://developer.paypal.com/developer/accounts/
+Then navigate: My Apps & Credentials -> REST API apps -> Create App
+Select the one that you've just created to get CLIENT_ID and CLIENT_SECRET
+Change it to LIVE when your app in production mode
+
 #### Register your service
         PaypalConfig config = new PaypalConfig(CLIENT_ID, CLIENT_SECRET, MODE);
         PaypalService service = new PaypalService(config);
@@ -29,4 +36,16 @@ Enhanced Paypal Java SDK
                 .withItemList(listItem)
                 .build();
         Payment payment = service.makePayment(paymentConfig);
-        System.out.println(payment.getLinks());
+        System.out.println(payment.getLinks().get(1).getHref());
+
+#### Get Confirmation Link & Redirect User to it
+        payment.getLinks().get(1).getHref()
+        
+#### Write Controller with these signature to handle success and cancel cases
+
+        @GetMapping("/success") // match withSuccessUrl property of PaymentConfig object
+        public void handleSuccess(@RequestParam("paymentId") String paymentId,
+                                           @RequestParam("PayerID") String payerId) {}
+                                          
+        @GetMapping("/cancel") // match withCancelUrl property of PaymentConfig object
+        public void handleCancel(@RequestParam("token") String token)
