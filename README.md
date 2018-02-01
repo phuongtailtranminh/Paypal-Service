@@ -1,11 +1,11 @@
 # Paypal-Service
 Enhanced Paypal Java SDK
 
-### Register your service
-> PaypalConfig config = new PaypalConfig(CLIENT_ID, CLIENT_SECRET, PaypalMode.sandbox);
-> PaypalService service = new PaypalService(config);
+#### Register your service
+        PaypalConfig config = new PaypalConfig(CLIENT_ID, CLIENT_SECRET, MODE);
+        PaypalService service = new PaypalService(config);
 
-### Create your payment
+#### Create your payment
         List<Item> listItem = new ArrayList<Item>();
         // Item 1
         Item item = new Item();
