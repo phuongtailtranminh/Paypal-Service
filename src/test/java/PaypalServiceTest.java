@@ -57,7 +57,7 @@ public class PaypalServiceTest {
                 .withItemList(listItem)
                 .build();
         Payment payment = service.makePayment(paymentConfig);
-        System.out.println(payment.getLinks());
+        System.out.println(payment.getLinks().get(1).getHref());
     }
 
     @Test
